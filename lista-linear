@@ -7,8 +7,7 @@ typedef struct no{
     
 }no;
 
-no* L[10];
-no*ptlista;
+no* ptlista;
 
 no* inicia_lista() {
     no* tmp = malloc(sizeof (no));
@@ -23,13 +22,13 @@ void encerra_lista(){
 }
 
 int busca1(int x) {
-    L[10];
+    no* L = malloc(sizeof (no));
     int n = 10;
     
     int retorno = 0;
     int i = 1;
     while (i <= n) {
-        if (L[i]->chave == x) {
+        if (L[i].chave == x) {
             retorno = i;
             i = n + 1;
             return retorno;
@@ -41,26 +40,29 @@ int busca1(int x) {
 
 int busca(int x){
     int n = 10;
-    L[n+1]->chave = x;
+    no* L = malloc(sizeof (no));
+    L[n+1].chave = x;
     int i = 1;
     int retorno;
-    
-    while (L[i]->chave != x){
+    while (L[i].chave != x){
         i = i+1;
     }
+    
     if (i!=n+1){
         retorno = i;
         return retorno;
+
     }
     else{
         retorno = 0;
         return retorno;
     }
+
     
 }
 
 int insere(no){
-    L[10];
+    no* L = malloc(sizeof (no));
     int n = 0;
     int m = 10;
     int retorno;
@@ -86,13 +88,14 @@ int insere(no){
 }   
 
 int busca_ord(int x){
+    no* L = malloc(sizeof (no));
     int n = 2;
-    L[n+1]->chave = x;
+    L[n+1].chave = x;
     int i = 1;
-    while(L[i]->chave < x){
+    while(L[i].chave < x){
         i++;
     }
-    if(i == n + 1 || L[i]->chave != x){
+    if(i == n + 1 || L[i].chave != x){
         return 0;
     }
     else{
@@ -104,12 +107,11 @@ int busca_ord(int x){
 
 int main(int argc, char** argv) {
     ptlista = inicia_lista();
-    no p;
-    p.chave= 1;
-    p.valor = 7;
     
-    printf ("valor a ser inserido: %d\n %d\n", 7, insere(p));
-    printf("valor na posição %d:\n%d\n", 1 ,busca_ord(1));
+    //printf ("valor a ser inserido: %d\n %d\n", 7, insere(p));
+    printf("busca inciada\n");
+    printf("valor na posição %d:\n%d\n", 1 ,busca1(1));
+    printf("busca finalizada");
     
     encerra_lista(ptlista);
     
